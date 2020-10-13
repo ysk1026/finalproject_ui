@@ -26,6 +26,9 @@ const Menu = () => {
         <NavLink className="link-list" activeStyle={active} to="/writing">
           게시글 작성
         </NavLink>
+        <NavLink className="link-list" activeStyle={active} to="/Signin">
+          Sign in
+        </NavLink>
       </div>
     </div>
   );
