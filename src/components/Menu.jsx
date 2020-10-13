@@ -17,9 +17,9 @@ const Menu = () => {
   return (
     <div>
       <div className="menu-container">
-        <NavLink className="link-list" to="/home" activeStyle={active}>
+        {/* <NavLink className="link-list" to="/home" activeStyle={active}>
           홈
-        </NavLink>
+        </NavLink> */}
         <NavLink className="link-list" activeStyle={active} to="/review">
           리뷰
         </NavLink>

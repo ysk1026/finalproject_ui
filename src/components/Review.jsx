@@ -1,8 +1,17 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 import "./review.css";
 
 const Review = () => (
   <>
+    <div>
+      <NavLink to="/">
+        홈
+      </NavLink>
+      <NavLink to="/writing">
+          게시글 작성
+        </NavLink>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-6">
