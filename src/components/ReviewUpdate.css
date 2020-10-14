@@ -1,0 +1,51 @@
+* {
+  background-image: url("https://www.deviantart.com/visuasys/art/Man-of-Steel-Wallpaper-369681167");
+  background-position: 'center';
+  background-size: 'cover';
+  background-repeat: 'no-repeat';
+}
+
+#form_container
+{
+	padding:15px 15px;
+	margin-top:15px;
+
+}
+
+#message {
+  width: 300px;
+  height: 200px;
+  margin-top: 15px;
+}
+body
+{
+	background-color: white;
+	/* background-image: url("images/stduio-2035349_1280.jpg"); */
+	background-size: cover;
+  background-repeat:no-repeat;
+  text-align:center;
+  color: black;
+
+}
+.upload-btn-wrapper 
+{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] 
+{
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.message {
+  /* display:inline-block; */
+  margin-top: 20px;
+  margin-bottom: 4px;
+  
+}

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Menu, Review, SignIn } from '../components'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { Menu, Review, SignIn, ReviewUpdate } from '../components'
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 
 const Main = () => <>
     <BrowserRouter>
@@ -8,7 +8,8 @@ const Main = () => <>
             <Route>
                 <Route exact path="/" component={Menu}/>
                 <Route path="/review" component={Review}/>
-                <Route path="/signin" component={SignIn}/>                  
+                <Route path="/signin" component={SignIn}/>     
+                <Route path="/reviewupdate" component={ReviewUpdate}/>     
             </Route>
         </Switch>
     </BrowserRouter>
