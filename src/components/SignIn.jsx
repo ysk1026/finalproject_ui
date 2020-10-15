@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 
 function Copyright() {
   return (
@@ -54,10 +55,10 @@ export default function SignIn() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <BorderColorIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          리뷰를 작성해주세요
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -66,26 +67,35 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="제목"
             name="email"
             autoComplete="email"
             autoFocus
           />
-          <TextField
+          {/* <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
             name="password"
-            label="Password"
+            label="리뷰"
             type="password"
             id="password"
             autoComplete="current-password"
+          /> */}
+          <TextField
+          id="outlined-multiline-static"
+          label="리뷰"
+          multiline
+          required
+          fullWidth
+          rows={4}
+          variant="outlined"
           />
-          <FormControlLabel
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
-          />
+          /> */}
           <Button
             type="submit"
             fullWidth
@@ -93,19 +103,19 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            등록
           </Button>
           <Grid container>
-            <Grid item xs>
+            {/* <Grid item xs>
               <Link href="#" variant="body2">
                 Forgot password?
               </Link>
-            </Grid>
-            <Grid item>
+            </Grid> */}
+            {/* <Grid item>
               <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
-            </Grid>
+            </Grid> */}
           </Grid>
         </form>
       </div>

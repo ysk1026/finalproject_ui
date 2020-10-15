@@ -1,4 +1,4 @@
-* {
+/* * {
   background-image: url("https://www.deviantart.com/visuasys/art/Man-of-Steel-Wallpaper-369681167");
   background-position: 'center';
   background-size: 'cover';
@@ -21,7 +21,7 @@ body
 {
 	background-color: white;
 	/* background-image: url("images/stduio-2035349_1280.jpg"); */
-	background-size: cover;
+	/* background-size: cover;
   background-repeat:no-repeat;
   text-align:center;
   color: black;
@@ -45,7 +45,7 @@ body
 
 .message {
   /* display:inline-block; */
-  margin-top: 20px;
+  /* margin-top: 20px;
   margin-bottom: 4px;
   
-}
+} */
