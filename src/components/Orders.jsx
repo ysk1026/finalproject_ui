@@ -7,6 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
+import StarRateIcon from '@material-ui/icons/StarRate';
+import StarHalfIcon from '@material-ui/icons/StarHalf';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -14,11 +16,11 @@ function createData(id, date, name, shipTo, paymentMethod, amount) {
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
-  createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-  createData(3, '16 Mar, 2019', 'Michael Jackson', 'Gary, IN', 'AMEX ⠀•••• 2000', 654.39),
-  createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
+  createData(0, '16 Oct, 2020', 'Cheolll', '신과 함께', '재밌었다', <StarRateIcon/>),
+  createData(1, '16 Oct, 2020', 'Marvelovea', '아이언맨3', 'Nice movie', <StarRateIcon/>),
+  createData(2, '16 Oct, 2020', 'Kcineff', '부산행', '갈수록 애매한 느낌??', <StarRateIcon/>),
+  createData(3, '16 Oct, 2020', 'Jee1024', '광해', '연기력 대박...', <StarRateIcon/>),
+  createData(4, '15 Oct, 2020', 'Senqm', '아저씨', '완벽한 작품', <StarRateIcon/>),
 ];
 
 function preventDefault(event) {
@@ -35,15 +37,15 @@ export default function Orders() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Recent Reviews</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>날짜</TableCell>
+            <TableCell>ID</TableCell>
+            <TableCell>영화</TableCell>
+            <TableCell>글</TableCell>
+            <TableCell align="right">별점</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -60,7 +62,7 @@ export default function Orders() {
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
+          더 많은 리뷰 보기
         </Link>
       </div>
     </React.Fragment>
