@@ -22,6 +22,7 @@ import { mainListItems, secondaryListItems } from './Listitems';
 // import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import Searchappbar from './Searchappbar';
 
 function Copyright() {
   return (
@@ -131,9 +132,9 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-        <Toolbar className={classes.toolbar}>
-          <IconButton
+      <AppBar position="absolute">
+        {/* <Toolbar className={classes.toolbar}> */}
+          {/* <IconButton
             edge="start"
             color="inherit"
             aria-label="open drawer"
@@ -141,18 +142,19 @@ export default function Dashboard() {
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
           >
             <MenuIcon />
-          </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+          </IconButton> */}
+          {/* <Typography component="h1" variant="h8" color="gray" noWrap className={classes.title}>
             Leader Board
-          </Typography>
-          <IconButton color="inherit">
+          </Typography> */}
+          {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
-        </Toolbar>
+        </Toolbar> */}
+        <Searchappbar></Searchappbar>
       </AppBar>
-      <Drawer
+      {/* <Drawer
         variant="permanent"
         classes={{
           paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
@@ -165,10 +167,10 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>{mainListItems}</List> 
         <Divider />
         <List>{secondaryListItems}</List>
-      </Drawer>
+      </Drawer> */}
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
