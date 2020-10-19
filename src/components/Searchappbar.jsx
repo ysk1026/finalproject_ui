@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   toolbar: {
-      background: 'gray'
+      background: '#D5D8DC'
   },
 
   title: {

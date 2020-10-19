@@ -4,7 +4,7 @@ import axios from 'axios'
 const Home = () => {
 
     const test = () => {
-        axios.get('http://localhost:8080/api')
+        axios.get('http://127.0.0.1:8080/api')
             .then(res => {
                 alert('Connection Success !!')
             }
