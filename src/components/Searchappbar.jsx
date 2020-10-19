@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  toolbar: {
+      background: 'gray'
+  },
+
   title: {
     flexGrow: 1,
     display: 'none',
@@ -69,7 +73,7 @@ export default function SearchAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
             className={classes.menuButton}

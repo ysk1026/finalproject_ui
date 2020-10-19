@@ -1,6 +1,7 @@
 import React from 'react'
-import {Main} from './templates'
+import {Main, Home} from './templates'
 
-const App = () => <><Main/></>
+const App = () => <><Main/>
+                    <Home/></>
 
 export default App
