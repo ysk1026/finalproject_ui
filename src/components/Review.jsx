@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -48,6 +48,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Review() {
+  const [movietitle, setTitle] = useState()
+  const [reviewcontent, setContent] = useState()
+  const submit = e => {
+    e.preventDefault();
+    alert(`새로운 리뷰 등록 - 제목:${movietitle}, 내용:${reviewcontent}`)
+  }
   const classes = useStyles();
 
   return (
@@ -67,10 +73,8 @@ export default function Review() {
             required
             fullWidth
             id="email"
-            label="제목"
-            name="email"
-            autoComplete="email"
-            autoFocus
+            label="영화"
+            onChange= {e => setTitle(e.target.value)}
           />
           {/* <TextField
             variant="outlined"
@@ -91,6 +95,7 @@ export default function Review() {
           fullWidth
           rows={4}
           variant="outlined"
+          onChange= {e => setContent(e.target.value)}
           />
           {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -102,6 +107,7 @@ export default function Review() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick = {submit}
           >
             등록
           </Button>

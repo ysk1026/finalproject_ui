@@ -61,8 +61,8 @@ export default function Orders() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          더 많은 리뷰 보기
+        <Link color="primary" href="http://localhost:3000/Signin">
+          리뷰 작성
         </Link>
       </div>
     </React.Fragment>

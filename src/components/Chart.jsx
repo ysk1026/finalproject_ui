@@ -24,31 +24,76 @@ export default function Chart() {
   const theme = useTheme();
 
   return (
-    <React.Fragment>
-      <Title>Today</Title>
-      <ResponsiveContainer>
-        <LineChart
-          data={data}
-          margin={{
-            top: 16,
-            right: 16,
-            bottom: 0,
-            left: 24,
-          }}
-        >
-          <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
-          <YAxis stroke={theme.palette.text.secondary}>
-            <Label
-              angle={270}
-              position="left"
-              style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
-            >
-              Sales ($)
-            </Label>
-          </YAxis>
-          <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
-        </LineChart>
-      </ResponsiveContainer>
-    </React.Fragment>
+    <table>
+      <thead className = "spacing">
+      <tr>
+        <th>순위</th>
+        <th>영화명</th>
+        <th>변동폭</th>
+      </tr>
+    </thead>
+      <tr>
+        <td></td>
+        <td>하이로</td>
+        <td>헤이헤이</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    // <React.Fragment>
+    //   <Title>Today</Title>
+    //   <ResponsiveContainer>
+    //     <LineChart
+    //       data={data}
+    //       margin={{
+    //         top: 16,
+    //         right: 16,
+    //         bottom: 0,
+    //         left: 24,
+    //       }}
+    //     >
+    //       <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
+    //       <YAxis stroke={theme.palette.text.secondary}>
+    //         <Label
+    //           angle={270}
+    //           position="left"
+    //           style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
+    //         >
+    //           Sales ($)
+    //         </Label>
+    //       </YAxis>
+    //       <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+    //     </LineChart>
+    //   </ResponsiveContainer>
+    // </React.Fragment>
   );
 }
