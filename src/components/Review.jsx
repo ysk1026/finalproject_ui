@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import axios from 'axios';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -48,12 +49,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Review() {
-  const [movietitle, setTitle] = useState()
-  const [reviewcontent, setContent] = useState()
-  const submit = e => {
-    e.preventDefault();
-    alert(`새로운 리뷰 등록 - 제목:${movietitle}, 내용:${reviewcontent}`)
+  // const [userId, setUserId] = useState('')
+  const [movieId, setMovieId] = useState('')
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+  const write = () => {
+    alert(`Title: ${movieId}, UserId: ${title}, Content: ${content}`)
+    axios.post(`http://localhost:8080/api/reviews`, {user_id: '1', label: '1', movieId: 'movieId', title:'title', content: 'content'})
+    .then(res => {
+      alert('Writting Success, review updated')
+    })
+    .catch(
+      e => {
+        alert(`Writing ${e}`)
+      }
+    )
   }
+
+  const options = [
+    {
+        label: "Select Movie",
+        value: "0",
+      },
+    {
+      label: "movie",
+      value: "1",
+    },
+    {
+      label: "TV Show",
+      value: "2",
+    },
+  ];
+
   const classes = useStyles();
 
   return (
@@ -66,14 +93,23 @@ export default function Review() {
         <Typography component="h1" variant="h5">
           리뷰를 작성해주세요
         </Typography>
+        <div class="mb-3" style={{margin: '26px 0 0 0'}}>
+                            {/* <label htmlFor="movieId">Movie</label> */}
+                            <select value={movieId}
+                                    style={{width: '250px', height: '60px'}} 
+                                    onChange={e=>setMovieId(e.target.value)}>
+                                {options.map(o=>(
+                                    <option value={o.value}>{o.label}</option>
+                                ))}
+                            </select>
+        </div>
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="영화"
+            label="제목"
             onChange= {e => setTitle(e.target.value)}
           />
           {/* <TextField
@@ -107,7 +143,8 @@ export default function Review() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick = {submit}
+            onClick = {write}
+            // onClick = {submit}
           >
             등록
           </Button>

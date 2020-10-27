@@ -8,7 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import StarRateIcon from '@material-ui/icons/StarRate';
-import StarHalfIcon from '@material-ui/icons/StarHalf';
+// import StarHalfIcon from '@material-ui/icons/StarHalf';
+import './component.style.css'
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -61,7 +62,7 @@ export default function Orders() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="http://localhost:3000/Signin">
+        <Link className = "writereview" color="primary" href="http://localhost:3000/Signin">
           리뷰 작성
         </Link>
       </div>

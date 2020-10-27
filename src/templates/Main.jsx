@@ -2,6 +2,7 @@ import React from 'react'
 import { Menu, Dashboard, Review, ReviewUpdate} from '../components'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import { Checkout } from '../container'
+import { Home } from './Home'
 const Main = () => <>
     <BrowserRouter>
         <Switch>
@@ -14,6 +15,7 @@ const Main = () => <>
             </Route>
         </Switch>
     </BrowserRouter>
+    
 </>
 
 export default Main

@@ -19,3 +19,9 @@ tr {
     position: relative;
     left: 20px;
 }
+
+.writereview {
+    position: relative;
+    left: 1080px;
+    bottom: 5px;
+}
