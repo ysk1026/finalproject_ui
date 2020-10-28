@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -50,19 +50,36 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review() {
   // const [userId, setUserId] = useState('')
+  // const [data, setData] = useState([])
+  // useEffect(() => {
+  //   axios.get('http://localhost:8080/api/reviews')
+  //   .then(res =>{
+  //       alert('Movie list successfully loaded')
+  //       setData(res.data)
+  //   })
+  //   .catch(e => {
+  //       alert('Failed TT')
+  //       throw(e)
+  //   })
+  // },[])
+  const [userId, setUserId] = useState('')
   const [movieId, setMovieId] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  // const [userId, setUserId] = useState('')
+  // const [label, setLabel] = useState('')
+
   const write = () => {
-    alert(`Title: ${movieId}, UserId: ${title}, Content: ${content}`)
-    axios.post(`http://localhost:8080/api/reviews`, {user_id: '1', label: '1', movieId: 'movieId', title:'title', content: 'content'})
-    .then(res => {
-      alert('Writting Success, review updated')
-    })
-    .catch(
-      e => {
-        alert(`Writing ${e}`)
-      }
+    alert(`Title: ${title}, UserId: ${userId}, Content: ${content}, movie: ${movieId}`)
+    axios.post(`http://localhost:8080/api/review`,{'title':title,
+        'user_id': userId, 'content': content, 'movie_id': movieId})
+        .then(res => {
+            alert(`WRITING SUCCESS`)
+        })
+        .catch(
+            e => {
+                alert(`Writing ${e}`)
+            }
     )
   }
 
@@ -72,7 +89,7 @@ export default function Review() {
         value: "0",
       },
     {
-      label: "movie",
+      label: "Tenet",
       value: "1",
     },
     {
@@ -93,6 +110,16 @@ export default function Review() {
         <Typography component="h1" variant="h5">
           리뷰를 작성해주세요
         </Typography>
+        <div class="mb-3" style={{margin: '26px 0 0 0'}}>
+                            <label htmlFor="title">Title  </label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                name="title" id="title" 
+                                placeholder="Input Title" 
+                                style={{width: '250px'}}
+                                onChange={e=>setUserId(e.target.value)} />
+                        </div>
         <div class="mb-3" style={{margin: '26px 0 0 0'}}>
                             {/* <label htmlFor="movieId">Movie</label> */}
                             <select value={movieId}
