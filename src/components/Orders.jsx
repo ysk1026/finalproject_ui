@@ -44,17 +44,17 @@ export default function Orders() {
     axios.get('http://localhost:8080/api/reviews')
     .then(res=> {
       // console.log('loaded')
-      // setData(res.data.slice(-5))
+      setData(res.data.slice(-5))
     })
     .catch(e => {
       alert('Failed')
       throw(e)
     })
-})
+},[])
   return (
     <React.Fragment>
       <Title>Recent Reviews</Title>
-      <Table size="small">
+      <Table size="small" className = "tbsize">
         <TableHead>
           <TableRow>
             
@@ -76,7 +76,7 @@ export default function Orders() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link className = "writereview" color="primary" href="http://localhost:3000/Signin">
+        <Link className = "writereview" color="primary" href="http://localhost:3002/Signin">
           리뷰 작성
         </Link>
       </div>
