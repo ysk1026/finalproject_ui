@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import axios from 'axios';
+import {context as c} from '../context'
 import StarRateIcon from '@material-ui/icons/StarRate';
 // import StarHalfIcon from '@material-ui/icons/StarHalf';
 import './component.style.css'
@@ -37,23 +38,54 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Orders() {
+export default function ListAll() {
   const classes = useStyles();
   const [data, setData] = useState([])
   useEffect(() => {
     axios.get('http://localhost:8080/api/reviews')
     .then(res=> {
       // console.log('loaded')
-      setData(res.data.slice(-5))
+      setData(res.data)
     })
     .catch(e => {
       alert('Failed')
       throw(e)
     })
 },[])
+
+const fetchSomeReview = useCallback(async e=> {
+  alert("진입")
+  const title = document.querySelector('#revTitle').value
+  alert(title)
+  try {
+      const req = {
+          method: c.get,
+          url: `${c.url}/api/searchreview${title}`,
+          // data: {params: title},
+          auth: c.auth
+
+      }
+      const res = await axios(req)
+      alert(res.rev_id)
+      setData(res.data)
+  } catch (error){
+      alert(`fetchSomeReviews failure ${error}`)
+  }
+},[])
+
+const revid = e => {
+  const revId = e.target.getAttribute('rev-id')
+  console.log(revId)
+  localStorage.setItem("rev_id", revId);
+  alert(revId)
+}
   return (
     <React.Fragment>
-      <Title>Recent Reviews</Title>
+      <Title>Reviews</Title>
+      <div>
+      <input type="text" id='revTitle' placeholder ="Type Movie"/> 
+            <button onClick={fetchSomeReview}>Search</button>
+            </div>      
       <Table size="small" className = "tbsize">
         <TableHead>
           <TableRow>
@@ -61,7 +93,8 @@ export default function Orders() {
             <TableCell>ID</TableCell>
             <TableCell>영화</TableCell>
             <TableCell>리뷰 제목</TableCell>
-            <TableCell align="right">별점</TableCell>
+            <TableCell>별점</TableCell>
+            <TableCell align="right">수정</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -70,7 +103,14 @@ export default function Orders() {
               <TableCell>{i.user_id}</TableCell>
               <TableCell>{i.movie_id}</TableCell>
               <TableCell>{i.title}</TableCell>
-              <TableCell align="right">F</TableCell>
+              <TableCell>F</TableCell>
+              <TableCell align="right">
+              <button>
+                            <Link to="/edit-review" rev-id={i.rev_id} onClick={revid}>
+                            EDIT
+                            </Link>
+                        </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -79,9 +119,9 @@ export default function Orders() {
         <Link className = "writereview" color="primary" href="http://localhost:3000/Signin">
           리뷰 작성
         </Link>
-        <Link className = "writereview" color="primary" href="http://localhost:3000/reviewlist">
+        {/* <Link className = "writereview" color="primary" href="http://localhost:3000/reviewlist">
           전체 리뷰 보기
-        </Link>
+        </Link> */}
       </div>
     </React.Fragment>
   );

@@ -110,7 +110,7 @@ export default function Review() {
         <Typography component="h1" variant="h5">
           리뷰를 작성해주세요
         </Typography>
-        <div class="mb-3" style={{margin: '26px 0 0 0'}}>
+        {/* <div class="mb-3" style={{margin: '26px 0 0 0'}}>
                             <label htmlFor="title">Title  </label>
                             <input 
                                 type="text" 
@@ -119,7 +119,7 @@ export default function Review() {
                                 placeholder="Input Title" 
                                 style={{width: '250px'}}
                                 onChange={e=>setUserId(e.target.value)} />
-                        </div>
+                        </div> */}
         <div class="mb-3" style={{margin: '26px 0 0 0'}}>
                             {/* <label htmlFor="movieId">Movie</label> */}
                             <select value={movieId}
