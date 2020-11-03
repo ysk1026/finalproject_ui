@@ -6,6 +6,10 @@ tr {
     width: 100%;
 }
 
+.myList {
+    display: flex;
+    left: 500px;
+}
 .movietitle {
     width:600px;
 }

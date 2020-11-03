@@ -62,7 +62,7 @@ export default function Review() {
   //       throw(e)
   //   })
   // },[])
-  const [userId, setUserId] = useState('')
+  // const [userId, setUserId] = useState('')
   const [movieId, setMovieId] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
@@ -70,10 +70,11 @@ export default function Review() {
   // const [label, setLabel] = useState('')
 
   const write = () => {
-    alert(`Title: ${title}, UserId: ${userId}, Content: ${content}, movie: ${movieId}`)
-    axios.post(`http://localhost:8080/api/review`,{'title':title,
-        'user_id': userId, 'content': content, 'movie_id': movieId})
+    alert(`Title: ${title}, Content: ${content}, movie: ${movieId}`)
+    axios.post(`http://localhost:8080/api/reviewpost`,{'title':title,
+        'content': content, 'movie_id': movieId})
         .then(res => {
+            console.log(res)
             alert(`WRITING SUCCESS`)
         })
         .catch(

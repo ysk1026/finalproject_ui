@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListAll() {
+export default function PrivateReview() {
   const classes = useStyles();
   const [data, setData] = useState([])
   useEffect(() => {
@@ -81,13 +81,10 @@ const revid = e => {
 }
   return (
     <React.Fragment>
-      <Title>Reviews</Title>
+      <Title>My Reviews</Title>
       <div>
       <input type="text" id='revTitle' placeholder ="Type Movie"/> 
             <button onClick={fetchSomeReview}>Search</button>
-            <Link className ="myList" color="primary" href="http://localhost:3000/myreviewlist" onClick={revid}>
-            나의 리뷰 모음
-            </Link>
             </div>      
       <Table size="small" className = "tbsize">
         <TableHead>
@@ -97,7 +94,7 @@ const revid = e => {
             <TableCell>영화</TableCell>
             <TableCell>리뷰 제목</TableCell>
             <TableCell>별점</TableCell>
-            {/* <TableCell align="right">수정</TableCell> */}
+            <TableCell align="right">수정</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -107,13 +104,13 @@ const revid = e => {
               <TableCell>{i.movie_id}</TableCell>
               <TableCell>{i.title}</TableCell>
               <TableCell>F</TableCell>
-              {/* <TableCell align="right">
+              <TableCell align="right">
               <button>
                             <Link to="/edit-review" rev-id={i.rev_id} onClick={revid}>
                             EDIT
                             </Link>
-                        </button> */}
-              {/* </TableCell> */}
+                        </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Dashboard, Review, ReviewList} from '../components'
+import { Menu, Dashboard, Review, ReviewList, MyReviewList} from '../components'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import { Checkout } from '../container'
 import { Home } from './Home'
@@ -12,6 +12,7 @@ const Main = () => <>
                 <Route path="/signin" component={Review}/>
                 <Route path="/reviewlist" component={ReviewList}/>
                 <Route path="/checkout" component={Checkout}/>       
+                <Route path="/myreviewlist" component={MyReviewList}/>       
             </Route>
         </Switch>
     </BrowserRouter>
