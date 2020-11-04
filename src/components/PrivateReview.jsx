@@ -41,10 +41,11 @@ const useStyles = makeStyles((theme) => ({
 export default function PrivateReview() {
   const classes = useStyles();
   const [data, setData] = useState([])
+  const userId = localStorage.getItem('user_id')
   useEffect(() => {
-    axios.get('http://localhost:8080/api/reviews')
+    axios.get(`http://localhost:8080/api/reviewbyuser${userId}`)
     .then(res=> {
-      // console.log('loaded')
+      console.log('loaded')
       setData(res.data)
     })
     .catch(e => {

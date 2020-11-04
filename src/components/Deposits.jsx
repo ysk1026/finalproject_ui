@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios'
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -26,15 +27,31 @@ const useStyles = makeStyles({
 
 export default function Deposits() {
   const classes = useStyles();
+  const [data, setData] = useState([])
+  useEffect(() => {
+    axios.get('http://localhost:8080/api/reviewpost')
+    .then (res => {
+      // alert(res.data['Avengers'])
+      const newarray = Object.keys(res.data)
+      setData(newarray)
+      console.log(newarray[newarray.length - 1])
+    })
+    .catch(e => {
+      alert("Failed")
+      throw(e)
+    })
+  }, [])
+
   return (
     <React.Fragment>
       <Title>Top Movie</Title>
       <Typography component="p" variant="h4">
-        <img className={classes.poster} src="https://images8.alphacoders.com/110/1106852.jpg" alt="img"/>
+        {/* <img className={classes.poster} src="https://images8.alphacoders.com/110/1106852.jpg" alt="img"/> */}
+          <p>{data[data.length - 1]}</p>
       </Typography>
-      <Typography color="textSecondary" className={classes.depositContext}>
+      {/* <Typography color="textSecondary" className={classes.depositContext}>
         on 19 Oct, 2020
-      </Typography>
+      </Typography> */}
       {/* <div> */}
         {/* <Link color="primary" href="#" onClick={preventDefault}>
           View all

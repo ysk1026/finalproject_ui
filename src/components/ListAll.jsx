@@ -73,11 +73,11 @@ const fetchSomeReview = useCallback(async e=> {
   }
 },[])
 
-const revid = e => {
-  const revId = e.target.getAttribute('rev-id')
-  console.log(revId)
-  localStorage.setItem("rev_id", revId);
-  alert(revId)
+const userId = e => {
+  // const revId = e.target.getAttribute('rev-id')
+  // console.log(revId)
+  localStorage.setItem("user_id", 8932678);
+  // alert()
 }
   return (
     <React.Fragment>
@@ -85,7 +85,7 @@ const revid = e => {
       <div>
       <input type="text" id='revTitle' placeholder ="Type Movie"/> 
             <button onClick={fetchSomeReview}>Search</button>
-            <Link className ="myList" color="primary" href="http://localhost:3000/myreviewlist" onClick={revid}>
+            <Link className ="myList" color="primary" href="http://localhost:3000/myreviewlist" onClick={userId}>
             나의 리뷰 모음
             </Link>
             </div>      
